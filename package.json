@@ -1,0 +1,27 @@
+{
+  "name": "equipshare-portal",
+  "version": "1.0.0",
+  "description": "EquipShare - Smart Equipment Lending Platform for Educational Institutions",
+  "author": "Abhijeet Halder (2024tm93546)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:p1 && npm run install:p2",
+    "install:p1": "cd phase1-manual/backend && npm install && cd ../frontend && npm install",
+    "install:p2": "cd phase2-ai-enhanced/backend && npm install && cd ../frontend && npm install",
+    "seed:p1": "cd phase1-manual/backend && npm run seed",
+    "seed:p2": "cd phase2-ai-enhanced/backend && npm run seed",
+    "dev:p1": "concurrently \"npm run dev:p1:backend\" \"npm run dev:p1:frontend\"",
+    "dev:p2": "concurrently \"npm run dev:p2:backend\" \"npm run dev:p2:frontend\"",
+    "dev:p1:backend": "cd phase1-manual/backend && npm start",
+    "dev:p1:frontend": "cd phase1-manual/frontend && npm start",
+    "dev:p2:backend": "cd phase2-ai-enhanced/backend && npm start",
+    "dev:p2:frontend": "cd phase2-ai-enhanced/frontend && npm start",
+    "build:p1": "cd phase1-manual/frontend && npm run build",
+    "build:p2": "cd phase2-ai-enhanced/frontend && npm run build",
+    "test:backend:p1": "cd phase1-manual/backend && npm test",
+    "test:backend:p2": "cd phase2-ai-enhanced/backend && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

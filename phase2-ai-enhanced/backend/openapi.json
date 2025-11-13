@@ -1,0 +1,281 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EquipShare API",
+    "version": "1.0.0",
+    "description": "API documentation for EquipShare (Phase 2)."
+  },
+  "servers": [{ "url": "http://localhost:5001/api" }],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health check",
+        "tags": ["Health"],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/version": {
+      "get": {
+        "summary": "API version",
+        "tags": ["Health"],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "summary": "Register",
+        "tags": ["Authentication"],
+        "responses": { "201": { "description": "Created" } }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Login",
+        "tags": ["Authentication"],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Get current user",
+        "tags": ["Authentication"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "summary": "Forgot password",
+        "tags": ["Authentication"],
+        "responses": { "200": { "description": "OTP sent" } }
+      }
+    },
+    "/auth/resend-otp": {
+      "post": {
+        "summary": "Resend OTP",
+        "tags": ["Authentication"],
+        "responses": { "200": { "description": "OTP resent" } }
+      }
+    },
+    "/auth/verify-otp": {
+      "post": {
+        "summary": "Verify OTP",
+        "tags": ["Authentication"],
+        "responses": { "200": { "description": "OTP verified" } }
+      }
+    },
+    "/auth/reset-password/{token}": {
+      "put": {
+        "summary": "Reset password",
+        "tags": ["Authentication"],
+        "parameters": [
+          { "name": "token", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Password reset" } }
+      }
+    },
+    "/equipment": {
+      "get": {
+        "summary": "List equipment",
+        "tags": ["Equipment"],
+        "responses": { "200": { "description": "OK" } }
+      },
+      "post": {
+        "summary": "Create equipment (admin/staff)",
+        "tags": ["Equipment"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "201": { "description": "Created" } }
+      }
+    },
+    "/equipment/{id}": {
+      "get": {
+        "summary": "Get equipment",
+        "tags": ["Equipment"],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } }
+      },
+      "put": {
+        "summary": "Update equipment (admin/staff)",
+        "tags": ["Equipment"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Updated" }, "404": { "description": "Not found" } }
+      },
+      "delete": {
+        "summary": "Delete equipment (admin)",
+        "tags": ["Equipment"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Deleted" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/requests": {
+      "get": {
+        "summary": "List requests",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      },
+      "post": {
+        "summary": "Create request",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "201": { "description": "Created" } }
+      }
+    },
+    "/requests/overdue": {
+      "get": {
+        "summary": "List overdue requests (admin/staff)",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/requests/{id}": {
+      "get": {
+        "summary": "Get request",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" }, "404": { "description": "Not found" } }
+      },
+      "delete": {
+        "summary": "Delete request",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Deleted" }, "404": { "description": "Not found" } }
+      }
+    },
+    "/requests/{id}/status": {
+      "put": {
+        "summary": "Update request status (admin/staff)",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/requests/{id}/items/{itemId}/return": {
+      "patch": {
+        "summary": "Return request item (admin/staff)",
+        "tags": ["Requests"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "itemId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Item returned" } }
+      }
+    },
+    "/analytics/summary": {
+      "get": {
+        "summary": "Analytics summary (admin/staff)",
+        "tags": ["Analytics"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/support/contact": {
+      "post": {
+        "summary": "Send contact message",
+        "tags": ["Support"],
+        "responses": { "201": { "description": "Message sent" } }
+      }
+    },
+    "/support/messages": {
+      "get": {
+        "summary": "Get all messages (admin)",
+        "tags": ["Support"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/support/messages/{id}": {
+      "get": {
+        "summary": "Get message (admin)",
+        "tags": ["Support"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      },
+      "put": {
+        "summary": "Update message (admin)",
+        "tags": ["Support"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Updated" } }
+      }
+    },
+    "/notifications/my-subscriptions": {
+      "get": {
+        "summary": "Get user subscriptions",
+        "tags": ["Notifications"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/notifications/bulk-check": {
+      "post": {
+        "summary": "Bulk check subscriptions",
+        "tags": ["Notifications"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/notifications/{equipmentId}/subscribe": {
+      "post": {
+        "summary": "Subscribe to equipment",
+        "tags": ["Notifications"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "equipmentId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Subscribed" } }
+      }
+    },
+    "/notifications/{equipmentId}/unsubscribe": {
+      "delete": {
+        "summary": "Unsubscribe from equipment",
+        "tags": ["Notifications"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "equipmentId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "Unsubscribed" } }
+      }
+    },
+    "/notifications/{equipmentId}/status": {
+      "get": {
+        "summary": "Check subscription status",
+        "tags": ["Notifications"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          { "name": "equipmentId", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+    }
+  }
+}
