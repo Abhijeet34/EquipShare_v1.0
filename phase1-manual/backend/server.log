@@ -1,0 +1,25 @@
+[dotenv@17.2.3] injecting env (6) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+ValidationError: Custom keyGenerator appears to use request IP without calling the ipKeyGenerator helper function for IPv6 addresses. This could allow IPv6 users to bypass limits. See https://express-rate-limit.github.io/ERR_ERL_KEY_GEN_IPV6/ for more information.
+    at Object.keyGeneratorIpFallback (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase1-manual/backend/node_modules/express-rate-limit/dist/index.cjs:637:13)
+    at wrappedValidations.<computed> [as keyGeneratorIpFallback] (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase1-manual/backend/node_modules/express-rate-limit/dist/index.cjs:680:22)
+    at parseOptions (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase1-manual/backend/node_modules/express-rate-limit/dist/index.cjs:750:16)
+    at rateLimit (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase1-manual/backend/node_modules/express-rate-limit/dist/index.cjs:831:18)
+    at Object.<anonymous> (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase1-manual/backend/middleware/rateLimiter.js:44:26)
+    at Module._compile (node:internal/modules/cjs/loader:1554:14)
+    at Object..js (node:internal/modules/cjs/loader:1706:10)
+    at Module.load (node:internal/modules/cjs/loader:1289:32)
+    at Function._load (node:internal/modules/cjs/loader:1108:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14) {
+  code: 'ERR_ERL_KEY_GEN_IPV6',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_KEY_GEN_IPV6/'
+}
+Server running on port 5001
+MongoDB connected
+Running initial inventory consistency check...
+[AUTO-FIX] Whiteboard: 0 → 6 available
+✓ Checked 18 items, fixed 1 inconsistencies
+Starting request expiration cron job (runs every 5 minutes)
+[2025-11-11T11:56:12.395Z] No expired requests found
+[2025-11-11T12:01:12.397Z] No expired requests found
+[2025-11-11T12:06:12.399Z] No expired requests found
+[2025-11-11T12:11:12.407Z] No expired requests found

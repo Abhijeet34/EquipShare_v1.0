@@ -1,0 +1,222 @@
+
+> equipment-lending-backend@1.0.0 start
+> node server.js
+
+[dotenv@17.2.3] injecting env (13) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+ValidationError: Custom keyGenerator appears to use request IP without calling the ipKeyGenerator helper function for IPv6 addresses. This could allow IPv6 users to bypass limits. See https://express-rate-limit.github.io/ERR_ERL_KEY_GEN_IPV6/ for more information.
+    at Object.keyGeneratorIpFallback (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase2-ai-enhanced/backend/node_modules/express-rate-limit/dist/index.cjs:637:13)
+    at wrappedValidations.<computed> [as keyGeneratorIpFallback] (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase2-ai-enhanced/backend/node_modules/express-rate-limit/dist/index.cjs:680:22)
+    at parseOptions (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase2-ai-enhanced/backend/node_modules/express-rate-limit/dist/index.cjs:750:16)
+    at rateLimit (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase2-ai-enhanced/backend/node_modules/express-rate-limit/dist/index.cjs:831:18)
+    at Object.<anonymous> (/Users/abhijeet/Docs/Courses/Semester 2/Subject - Artifacts/Full Stack Application Development/Assignments/EquipShare/phase2-ai-enhanced/backend/middleware/rateLimiter.js:44:26)
+    at Module._compile (node:internal/modules/cjs/loader:1760:14)
+    at Object..js (node:internal/modules/cjs/loader:1892:10)
+    at Module.load (node:internal/modules/cjs/loader:1480:32)
+    at Module._load (node:internal/modules/cjs/loader:1299:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  code: 'ERR_ERL_KEY_GEN_IPV6',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_KEY_GEN_IPV6/'
+}
+Swagger docs available at /api/docs
+Server running on port 5001
+MongoDB connected
+Running initial inventory consistency check...
+✓ Checked 21 items, fixed 0 inconsistencies
+Starting request expiration cron job (runs every minute)
+Starting overdue monitor (runs every minute)
+[2025-11-13T22:21:53.926Z] No expired requests found
+[0mOPTIONS /api/equipment?available=true [32m204[0m 2.150 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.101 ms - 0[0m
+[0mGET /api/equipment?available=true [32m200[0m 10.688 ms - 4210[0m
+[0mGET /api/equipment?available=true [36m304[0m 4.532 ms - -[0m
+[AUTO-FIX] Football: 6 → 8 available
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.074 ms - 0[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.105 ms - 0[0m
+[AUTO-FIX] Arduino Kit: 12 → 15 available
+[0mPOST /api/notifications/bulk-check [33m401[0m 15.879 ms - 65[0m
+[0mPOST /api/notifications/bulk-check [33m401[0m 3.674 ms - 65[0m
+[AUTO-FIX] Projector: 3 → 4 available
+[0mOPTIONS /api/auth/login [32m204[0m 0.228 ms - 0[0m
+[0mPOST /api/auth/login [32m200[0m 489.265 ms - 301[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.429 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.091 ms - 0[0m
+[0mGET /api/equipment?available=true [32m200[0m 2.644 ms - 4210[0m
+[0mGET /api/equipment?available=true [36m304[0m 5.956 ms - -[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.132 ms - 0[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 4.736 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 3.452 ms - 26[0m
+[0mOPTIONS /api/requests/overdue [32m204[0m 0.123 ms - 0[0m
+[0mOPTIONS /api/requests/overdue [32m204[0m 0.090 ms - 0[0m
+[0mGET /api/requests/overdue [32m200[0m 24.696 ms - 2637[0m
+[0mGET /api/requests/overdue [36m304[0m 9.321 ms - -[0m
+[0mOPTIONS /api/requests/691659fc5bff62cdfbbb3c0a/remind [32m204[0m 0.109 ms - 0[0m
+[2025-11-13T22:22:53.928Z] No expired requests found
+[EMAIL][SUCCESS] Overdue reminder sent to student3@school.com for Arduino Kit
+[0mPOST /api/requests/691659fc5bff62cdfbbb3c0a/remind [32m200[0m 7544.170 ms - 82[0m
+[2025-11-13T22:23:53.929Z] No expired requests found
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.251 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.060 ms - 0[0m
+[0mGET /api/equipment?available=true [36m304[0m 6.933 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 14.469 ms - -[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.335 ms - 0[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 41.201 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 37.636 ms - 26[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.105 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.066 ms - 0[0m
+[0mGET /api/equipment?available=true [36m304[0m 4.895 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 4.593 ms - -[0m
+[2025-11-13T22:24:53.930Z] No expired requests found
+[0mOPTIONS /api/requests [32m204[0m 0.088 ms - 0[0m
+[0mOPTIONS /api/requests [32m204[0m 0.042 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.114 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.118 ms - 0[0m
+[0mGET /api/requests [32m200[0m 23.433 ms - 13360[0m
+[0mGET /api/equipment?available=true [36m304[0m 10.002 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 2.240 ms - -[0m
+[0mGET /api/requests [36m304[0m 12.797 ms - -[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.040 ms - 0[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.025 ms - 0[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.838 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.341 ms - 26[0m
+[2025-11-13T22:25:53.931Z] No expired requests found
+[2025-11-13T22:26:53.932Z] No expired requests found
+[0mOPTIONS /api/requests [32m204[0m 1.162 ms - 0[0m
+[0mOPTIONS /api/requests [32m204[0m 0.149 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.069 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.043 ms - 0[0m
+[0mGET /api/equipment?available=true [36m304[0m 12.476 ms - -[0m
+[0mGET /api/requests [36m304[0m 30.764 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 2.579 ms - -[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.039 ms - 0[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.032 ms - 0[0m
+[0mGET /api/requests [36m304[0m 14.139 ms - -[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.771 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.543 ms - 26[0m
+[0mGET /api/requests [36m304[0m 15.740 ms - -[0m
+[0mGET /api/requests [36m304[0m 10.969 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 3.223 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 3.704 ms - -[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 4.731 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 3.811 ms - 26[0m
+[2025-11-13T22:27:53.931Z] No expired requests found
+[0mOPTIONS /api/requests/overdue [32m204[0m 0.107 ms - 0[0m
+[0mOPTIONS /api/requests/overdue [32m204[0m 0.065 ms - 0[0m
+[0mGET /api/requests/overdue [36m304[0m 8.173 ms - -[0m
+[0mGET /api/requests/overdue [36m304[0m 5.187 ms - -[0m
+[2025-11-13T22:28:53.933Z] No expired requests found
+[2025-11-13T22:29:53.933Z] No expired requests found
+[0mOPTIONS /api/requests [32m204[0m 0.388 ms - 0[0m
+[0mOPTIONS /api/requests [32m204[0m 0.066 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.059 ms - 0[0m
+[0mOPTIONS /api/equipment?available=true [32m204[0m 0.039 ms - 0[0m
+[0mGET /api/requests [36m304[0m 20.611 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 2.363 ms - -[0m
+[0mGET /api/equipment?available=true [36m304[0m 4.957 ms - -[0m
+[0mGET /api/requests [36m304[0m 11.534 ms - -[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.033 ms - 0[0m
+[0mOPTIONS /api/notifications/bulk-check [32m204[0m 0.020 ms - 0[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.626 ms - 26[0m
+[0mPOST /api/notifications/bulk-check [32m200[0m 2.072 ms - 26[0m
+[2025-11-13T22:30:53.935Z] No expired requests found
+[2025-11-13T22:31:53.936Z] No expired requests found
+[2025-11-13T22:32:53.937Z] No expired requests found
+[2025-11-13T22:33:53.937Z] No expired requests found
+[2025-11-13T22:34:53.938Z] No expired requests found
+[2025-11-13T22:35:53.939Z] No expired requests found
+[2025-11-13T22:36:53.940Z] No expired requests found
+[2025-11-13T22:37:53.941Z] No expired requests found
+[2025-11-13T22:38:53.943Z] No expired requests found
+[2025-11-13T22:39:53.944Z] No expired requests found
+[2025-11-13T22:40:53.945Z] No expired requests found
+[2025-11-13T22:41:53.946Z] No expired requests found
+[2025-11-13T22:42:53.947Z] No expired requests found
+[2025-11-13T22:43:53.948Z] No expired requests found
+[2025-11-13T22:44:53.949Z] No expired requests found
+[2025-11-13T22:45:53.950Z] No expired requests found
+[2025-11-13T22:46:53.951Z] No expired requests found
+[2025-11-13T22:47:53.952Z] No expired requests found
+[2025-11-13T22:48:53.953Z] No expired requests found
+[2025-11-13T22:49:53.954Z] No expired requests found
+[2025-11-13T22:50:53.955Z] No expired requests found
+[2025-11-13T22:51:53.956Z] No expired requests found
+[2025-11-13T22:52:53.957Z] No expired requests found
+[2025-11-13T22:53:53.958Z] No expired requests found
+[2025-11-13T22:54:53.959Z] No expired requests found
+[2025-11-13T22:55:53.959Z] No expired requests found
+[2025-11-13T22:56:53.960Z] No expired requests found
+[2025-11-13T22:57:53.960Z] No expired requests found
+[2025-11-13T22:58:53.961Z] No expired requests found
+[2025-11-13T22:59:53.962Z] No expired requests found
+[2025-11-13T23:00:53.963Z] No expired requests found
+[2025-11-13T23:01:53.965Z] No expired requests found
+[2025-11-13T23:02:53.966Z] No expired requests found
+[2025-11-13T23:03:53.967Z] No expired requests found
+[2025-11-13T23:04:53.968Z] No expired requests found
+[2025-11-13T23:05:53.968Z] No expired requests found
+[2025-11-13T23:06:53.970Z] No expired requests found
+[2025-11-13T23:07:53.971Z] No expired requests found
+[2025-11-13T23:08:53.972Z] No expired requests found
+[2025-11-13T23:09:53.972Z] No expired requests found
+[2025-11-13T23:10:53.974Z] No expired requests found
+[2025-11-13T23:11:53.976Z] No expired requests found
+[2025-11-13T23:12:53.977Z] No expired requests found
+[2025-11-13T23:13:53.978Z] No expired requests found
+[2025-11-13T23:14:53.979Z] No expired requests found
+[2025-11-13T23:15:53.980Z] No expired requests found
+[2025-11-13T23:16:53.981Z] No expired requests found
+[2025-11-13T23:17:53.983Z] No expired requests found
+[2025-11-13T23:18:53.984Z] No expired requests found
+[2025-11-13T23:19:53.985Z] No expired requests found
+[2025-11-13T23:20:53.985Z] No expired requests found
+[2025-11-13T23:21:53.987Z] No expired requests found
+[2025-11-13T23:22:53.989Z] No expired requests found
+[2025-11-13T23:23:53.990Z] No expired requests found
+[2025-11-13T23:24:53.991Z] No expired requests found
+[2025-11-13T23:25:53.992Z] No expired requests found
+[2025-11-13T23:26:53.993Z] No expired requests found
+[2025-11-13T23:27:53.993Z] No expired requests found
+[2025-11-13T23:28:53.995Z] No expired requests found
+[2025-11-13T23:29:53.996Z] No expired requests found
+[2025-11-13T23:30:53.997Z] No expired requests found
+[2025-11-13T23:31:54.000Z] No expired requests found
+[2025-11-13T23:32:54.002Z] No expired requests found
+[2025-11-13T23:33:54.003Z] No expired requests found
+[2025-11-13T23:34:54.005Z] No expired requests found
+[2025-11-13T23:35:54.007Z] No expired requests found
+[2025-11-13T23:36:54.007Z] No expired requests found
+[2025-11-13T23:37:54.007Z] No expired requests found
+[2025-11-13T23:38:54.009Z] No expired requests found
+[2025-11-13T23:39:54.010Z] No expired requests found
+[2025-11-13T23:40:54.011Z] No expired requests found
+[2025-11-13T23:41:54.011Z] No expired requests found
+[2025-11-13T23:42:54.012Z] No expired requests found
+[2025-11-13T23:43:54.013Z] No expired requests found
+[2025-11-13T23:44:54.013Z] No expired requests found
+[2025-11-13T23:45:54.014Z] No expired requests found
+[2025-11-13T23:46:54.016Z] No expired requests found
+[2025-11-13T23:47:54.017Z] No expired requests found
+[2025-11-13T23:48:54.019Z] No expired requests found
+[2025-11-13T23:49:54.020Z] No expired requests found
+[2025-11-13T23:50:54.021Z] No expired requests found
+[2025-11-13T23:51:54.023Z] No expired requests found
+[2025-11-13T23:52:54.023Z] No expired requests found
+[2025-11-13T23:53:54.024Z] No expired requests found
+[2025-11-13T23:54:54.025Z] No expired requests found
+[2025-11-13T23:55:54.026Z] No expired requests found
+[2025-11-13T23:56:54.027Z] No expired requests found
+[2025-11-13T23:57:54.028Z] No expired requests found
+[2025-11-13T23:58:54.030Z] No expired requests found
+[2025-11-13T23:59:54.030Z] No expired requests found
+[2025-11-14T00:00:54.031Z] No expired requests found
+[2025-11-14T00:01:54.032Z] No expired requests found
+[2025-11-14T00:02:54.034Z] No expired requests found
+[2025-11-14T00:03:54.035Z] No expired requests found
+[2025-11-14T00:04:54.036Z] No expired requests found
+[2025-11-14T00:05:54.037Z] No expired requests found
+[2025-11-14T00:06:54.038Z] No expired requests found
+[2025-11-14T00:07:54.039Z] No expired requests found
+[2025-11-14T00:08:54.040Z] No expired requests found
+[2025-11-14T00:09:54.041Z] No expired requests found
+[2025-11-14T00:10:54.042Z] No expired requests found
+[2025-11-14T00:11:54.043Z] No expired requests found
+[2025-11-14T00:12:54.044Z] No expired requests found

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>reCAPTCHA Test</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>reCAPTCHA Load Test</h1>
+    <p>If you see the reCAPTCHA widget below, the service is working:</p>
+    
+    <div class="g-recaptcha" data-sitekey="6LfysQcsAAAAABIqNSEOZnmA2x1frNc8CranCe35"></div>
+    
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Page loaded');
+            setTimeout(function() {
+                if (typeof grecaptcha !== 'undefined') {
+                    console.log('✓ reCAPTCHA loaded successfully');
+                } else {
+                    console.error('✗ reCAPTCHA failed to load');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
